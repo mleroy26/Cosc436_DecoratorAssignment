@@ -1,5 +1,5 @@
 package decorator_assignment;
 
-public class Tax_Computation {
+public class Component {
 
 }

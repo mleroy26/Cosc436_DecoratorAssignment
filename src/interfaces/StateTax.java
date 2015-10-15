@@ -1,5 +1,7 @@
 package interfaces;
 
-public interface StateTax {
+import decorator_assignment.PurchasedItems;
 
+public interface StateTax {
+	float getTax(PurchasedItems items);
 }
