@@ -9,4 +9,7 @@ public class PurchasedItems {
 	public ItemIterator getIterator(){
 		return null;
 	}
+	public String getTotal(){
+		return null;
+	}
 }

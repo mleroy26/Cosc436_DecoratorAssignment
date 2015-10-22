@@ -1,9 +1,10 @@
 package decorator_assignment;
 
 public abstract class Decorator {
-	private Component trailer;
+	@SuppressWarnings("unused")
+	private Receipt trailer;
 	
-	public void create(Component c){
+	public void create(Receipt c){
 		
 	}
 	public void callTrailer(){
