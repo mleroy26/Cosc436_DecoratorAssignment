@@ -9,7 +9,7 @@ public class Client {
 		//user input (display avail items, user selects from)
 		//create factory
 		ReceiptFactory factory = new ReceiptFactory(purchasedItems,decorators);
-		Receipt receipt=factory.getReceipt(); 
+		Basic_Receipt receipt=factory.getReceipt(); 
 		receipt.prtReceipt();
 	}
 

@@ -1,16 +1,18 @@
 package decorator_assignment;
 
-public class MassachusettsTax extends TaxComputation {
+import java.util.Calendar;
 
-	@Override
+public class MassachusettsTax extends TaxComputation {
+	private final double tax_rate=.0625;
+
 	public double computeTax(PurchasedItems items) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(TaxHoliday())
+			return 0;
+		return Double.parseDouble(items.getTotal())*tax_rate;
 	}
 
-	@Override
 	protected boolean TaxHoliday() {
-		// TODO Auto-generated method stub
+	//	if ()
 		return false;
 	}
 

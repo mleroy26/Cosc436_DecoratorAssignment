@@ -1,8 +1,17 @@
 package decorator_assignment;
 
+import java.util.ArrayList;
 import interfaces.ItemIterator;
 
-public class PurchasedItems {
+public class PurchasedItems extends ArrayList{
+	
+	private ArrayList Items=new ArrayList();
+	private ArrayList pItems=new ArrayList();
+	
+	public PurchasedItems(){
+		pItems.add(new Item(" "," "));
+	}
+	
 	public void addItem(){
 		
 	}

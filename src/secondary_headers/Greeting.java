@@ -1,5 +1,11 @@
 package secondary_headers;
 
-public class Greeting {
+import interfaces.AddOn;
+
+public class Greeting implements AddOn {
+	
+	public String getAddedOutput() {
+		return null;
+	}
 
 }

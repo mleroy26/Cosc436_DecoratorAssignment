@@ -2,15 +2,15 @@ package decorator_assignment;
 
 public class CaliforniaTax extends TaxComputation {
 
-	@Override
+	private final double tax_rate=.075;
+
 	public double computeTax(PurchasedItems items) {
-		// TODO Auto-generated method stub
-		return 0;
+		if(TaxHoliday())
+			return 0;
+		return Double.parseDouble(items.getTotal())*tax_rate;
 	}
 
-	@Override
 	protected boolean TaxHoliday() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

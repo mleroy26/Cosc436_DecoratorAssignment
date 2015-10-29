@@ -1,8 +1,10 @@
 package decorator_assignment;
 
+import java.util.Date;
+
 public class Basic_Receipt {
 
-	public Basic_Receipt(PurchasedItems items) {
+	public Basic_Receipt(PurchasedItems items,Date date) {
 		
 	}
 	public void create(){

@@ -1,11 +1,19 @@
 package decorator_assignment;
 
-import rebates.RebateItem;
+import java.util.Date;
+import coupons.Coupon;
+import rebates.Rebate;
+import secondary_headers.Greeting;
 
 public class ReceiptFactory {
 	private PurchasedItems items;
-	private Decorator[] decorators;
+	private Greeting greeting;
+	private Rebate[] rebates;
+	private Coupon[] coupons;
 	private Basic_Receipt receipt;
+	
+	private Decorator[] decorators;
+	
 	
 	private String StoreInfo;
 	private String StateCode;
@@ -13,13 +21,22 @@ public class ReceiptFactory {
 	private String StoreAddress;
 	private String PhoneNumber;
 	
-	public ReceiptFactory(PurchasedItems items, Decorator[] decorators){
+//	public ReceiptFactory(PurchasedItems items, Decorator[] decorators){
+//		this.items=items;
+//		this.decorators=decorators;
+//		readConfigFile();
+//		receipt=new Basic_Receipt(items);
+//		addTaxComputation();
+//		addDecorators();
+//		old code
+//	}
+	
+	public ReceiptFactory(PurchasedItems items, Date date){
 		this.items=items;
-		this.decorators=decorators;
-		readConfigFile();
-		receipt=new Basic_Receipt(items);
-		addTaxComputation();
-		addDecorators();
+//		getAddOns(greeting,rebates,coupons);
+		//iterate through each adding applicable addons as decorators
+		receipt=new Basic_Receipt(items,date);
+		receipt=new PreDecorator(greeting,receipt);
 	}
 	private void readConfigFile() {
 		//can have two lines in file:
@@ -31,8 +48,8 @@ public class ReceiptFactory {
 		// instance variables, store info, and state code
 	}
 	private void addDecorators() {
-		receipt=new GreetingDecorator(receipt);
-		receipt=new RebateItem(receipt);
+//		receipt=new GreetingDecorator(receipt);
+//		receipt=new RebateItem(receipt);
 	}
 	private void addTaxComputation() {
 		TaxComputation tc = null;
@@ -46,7 +63,7 @@ public class ReceiptFactory {
 			tc=new MassachusettsTax();
 		receipt.setTax(tc);
 	}
-	public Receipt getReceipt(){
+	public Basic_Receipt getReceipt(){
 		return receipt;
 	}
 }

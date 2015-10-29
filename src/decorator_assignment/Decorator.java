@@ -1,13 +1,15 @@
 package decorator_assignment;
 
 public abstract class Decorator {
-	@SuppressWarnings("unused")
-	private Receipt trailer;
+	private Receipt receipt;
 	
-	public void create(Receipt c){
+	public Decorator(Receipt r) {
+		
+	}
+	public void create(Receipt r){
 		
 	}
 	public void callTrailer(){
-		
+		receipt.prtReceipt();
 	}
 }

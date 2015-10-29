@@ -1,5 +1,6 @@
 package decorator_assignment;
 
+
 public class MarylandTax extends TaxComputation {
 
 	private final double tax_rate=.06;
@@ -10,7 +11,6 @@ public class MarylandTax extends TaxComputation {
 		return Double.parseDouble(items.getTotal())*tax_rate;
 	}
 	protected boolean TaxHoliday() {
-		// Needs Work
 		return false;
 	}
 
