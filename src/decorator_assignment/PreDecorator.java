@@ -1,6 +1,7 @@
 package decorator_assignment;
 
 import interfaces.AddOn;
+import interfaces.Receipt;
 
 public class PreDecorator extends Decorator{
 	private AddOn a;

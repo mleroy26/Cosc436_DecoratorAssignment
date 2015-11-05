@@ -5,7 +5,7 @@ import interfaces.AddOn;
 import interfaces.Applicable;
 import interfaces.Rebate;
 
-public class Rebate1406 implements Applicable, AddOn, Rebate {
+public class Rebate3610 implements Applicable, AddOn, Rebate {
 
 	public String getAddedOutput() {
 		return "Mail-in Rebate for Item #1406\n" +

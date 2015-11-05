@@ -1,5 +1,7 @@
 package interfaces;
 
+import decorator_assignment.PurchasedItems;
+
 public interface Applicable {
-	boolean applies(String[] x);
+	public boolean applies(PurchasedItems items);
 }

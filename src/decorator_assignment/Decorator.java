@@ -1,15 +1,15 @@
 package decorator_assignment;
 
-public abstract class Decorator {
+import interfaces.Receipt;
+
+public abstract class Decorator implements Receipt{
 	private Receipt receipt;
 	
 	public Decorator(Receipt r) {
-		
-	}
-	public void create(Receipt r){
-		
+		receipt=r;
 	}
 	public void callTrailer(){
 		receipt.prtReceipt();
 	}
+	public abstract void prtReceipt();
 }

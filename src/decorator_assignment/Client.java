@@ -1,19 +1,21 @@
 package decorator_assignment;
 
+import interfaces.Receipt;
+
 public class Client {
 	
 	public static void main(String[] args){
-		PurchasedItems purchasedItems=null;
-		Decorator[] decorators =new Decorator[10];
-		getCurrentDecorators(decorators);//supporting method
-		//user input (display avail items, user selects from)
-		//create factory
-		ReceiptFactory factory = new ReceiptFactory(purchasedItems,decorators);
-		Basic_Receipt receipt=factory.getReceipt(); 
+		PurchasedItems items;
+		ReceiptDate date=new ReceiptDate(11,5,2015);
+		
+		//display items here
+		
+		//get user selections
+		
+		ReceiptFactory factory = new ReceiptFactory(items, date);
+		Receipt receipt = factory.getReceipt();
 		receipt.prtReceipt();
+
 	}
 
-	private static void getCurrentDecorators(Decorator[] decorators) {
-		
-	}
 }

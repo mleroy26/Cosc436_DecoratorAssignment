@@ -18,7 +18,7 @@ public class PurchasedItems extends ArrayList{
 	public ItemIterator getIterator(){
 		return null;
 	}
-	public String getTotal(){
-		return null;
+	public double getTotal(){
+		return 0;
 	}
 }

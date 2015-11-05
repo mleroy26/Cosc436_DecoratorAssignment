@@ -1,55 +1,72 @@
 package decorator_assignment;
 
 import java.util.Date;
-import coupons.Coupon;
-import rebates.Rebate;
-import secondary_headers.Greeting;
+
+import coupons.Coupon100Get10Percent;
+import coupons.Coupon200Get25Percent;
+import interfaces.AddOn;
+import interfaces.Applicable;
+import interfaces.Greeting;
+import interfaces.Receipt;
+import rebates.Rebate1406;
+import rebates.Rebate3610;
+import secondary_headers.HolidayGreeting;
 
 public class ReceiptFactory {
 	private PurchasedItems items;
-	private Greeting greeting;
-	private Rebate[] rebates;
-	private Coupon[] coupons;
-	private Basic_Receipt receipt;
-	
-	private Decorator[] decorators;
-	
-	
-	private String StoreInfo;
-	private String StateCode;
-	private String StoreNum;
-	private String StoreAddress;
-	private String PhoneNumber;
-	
-//	public ReceiptFactory(PurchasedItems items, Decorator[] decorators){
-//		this.items=items;
-//		this.decorators=decorators;
-//		readConfigFile();
-//		receipt=new Basic_Receipt(items);
-//		addTaxComputation();
-//		addDecorators();
-//		old code
-//	}
-	
-	public ReceiptFactory(PurchasedItems items, Date date){
+	private ReceiptDate date;
+
+	private AddOn[] addons; //greeting, rebate, and coupons
+
+	public ReceiptFactory(PurchasedItems items, ReceiptDate date)throws UnknownAddOnType {
 		this.items=items;
-//		getAddOns(greeting,rebates,coupons);
-		//iterate through each adding applicable addons as decorators
-		receipt=new Basic_Receipt(items,date);
-		receipt=new PreDecorator(greeting,receipt);
+		this.date=date;
+
+		Receipt receipt=new Basic_Receipt(items,date);
+
+		//link taxcomputation obj (tbd)
+
+		getAddOns(addons);
+		for (AddOn a: addons){
+			if (a instanceof Applicable){
+				if (((Applicable) a).applies(items))  {
+					if (a instanceof Greeting)
+						receipt = new PreDecorator(a, receipt);
+					else
+						if (a instanceof interfaces.Rebate || a instanceof interfaces.Coupon)
+							receipt = new PostDecorator(a, receipt);
+				}
+				else{
+					if (a instanceof Greeting)
+						receipt = new PreDecorator(a, receipt);
+					else
+						throw new UnknownAddOnType();
+				}
+			}
+		}
 	}
+	private void getAddOns(AddOn[] addOns){
+		addOns = new AddOn[5];
+
+		addOns[0] = new HolidayGreeting();
+		addOns[1] = new Rebate1406();
+		addOns[2] = new Rebate3610();
+		addOns[3] = new Coupon100Get10Percent();
+		addOns[4] = new Coupon200Get25Percent();
+	}
+
 	private void readConfigFile() {
 		//can have two lines in file:
 		//Store# address Phone-number
 		//State code
-		
-		
+
+
 		//store in receipt factory:
 		// instance variables, store info, and state code
 	}
 	private void addDecorators() {
-//		receipt=new GreetingDecorator(receipt);
-//		receipt=new RebateItem(receipt);
+		//		receipt=new GreetingDecorator(receipt);
+		//		receipt=new RebateItem(receipt);
 	}
 	private void addTaxComputation() {
 		TaxComputation tc = null;
@@ -63,7 +80,9 @@ public class ReceiptFactory {
 			tc=new MassachusettsTax();
 		receipt.setTax(tc);
 	}
-	public Basic_Receipt getReceipt(){
-		return receipt;
+	public Receipt getReceipt() {
+		
+		return null;
 	}
+	
 }
