@@ -1,6 +1,8 @@
 package decorator_assignment;
 
 import java.util.Date;
+
+import abstractClasses.TaxComputation;
 import interfaces.Receipt;
 
 public class Basic_Receipt implements Receipt{
@@ -8,12 +10,12 @@ public class Basic_Receipt implements Receipt{
 	private String stateCode;
 	
 	private PurchasedItems items;
-	private Date date;
+	private ReceiptDate date;
 	private TaxComputation tc;
 
-	public Basic_Receipt(PurchasedItems items,Date date) {
+	public Basic_Receipt(PurchasedItems items,ReceiptDate date2) {
 		this.items=items;
-		this.date=date;
+		this.date=date2;
 	}
 	public void prtReceipt(){
 		//to implement

@@ -1,5 +1,7 @@
 package decorator_assignment;
 
+import abstractClasses.TaxComputation;
+
 public class DelawareTax extends TaxComputation{
 
 	public double computeTax(PurchasedItems items, ReceiptDate date) {

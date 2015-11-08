@@ -1,4 +1,4 @@
-package decorator_assignment;
+package abstractClasses;
 
 import interfaces.Receipt;
 

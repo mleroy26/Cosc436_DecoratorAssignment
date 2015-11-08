@@ -2,10 +2,10 @@ package coupons;
 
 import decorator_assignment.PurchasedItems;
 import interfaces.AddOn;
-import interfaces.Applicable;
+import interfaces.Applies;
 import interfaces.Coupon;
 
-public class Coupon100Get10Percent implements AddOn, Applicable, Coupon {
+public class Coupon100Get10Percent implements AddOn, Applies, Coupon {
 
 	public boolean applies(PurchasedItems items) {
 		if(items.getTotal()>=100)

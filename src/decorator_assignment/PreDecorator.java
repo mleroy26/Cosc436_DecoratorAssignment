@@ -1,5 +1,6 @@
 package decorator_assignment;
 
+import abstractClasses.Decorator;
 import interfaces.AddOn;
 import interfaces.Receipt;
 

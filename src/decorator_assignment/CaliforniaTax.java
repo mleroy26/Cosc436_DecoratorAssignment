@@ -1,5 +1,7 @@
 package decorator_assignment;
 
+import abstractClasses.TaxComputation;
+
 public class CaliforniaTax extends TaxComputation {
 
 	private final double tax_rate=.075;

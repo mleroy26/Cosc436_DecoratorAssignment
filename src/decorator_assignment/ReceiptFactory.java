@@ -1,16 +1,15 @@
 package decorator_assignment;
 
-import java.util.Date;
-
-import coupons.Coupon100Get10Percent;
-import coupons.Coupon200Get25Percent;
 import interfaces.AddOn;
-import interfaces.Applicable;
+import interfaces.Applies;
 import interfaces.Greeting;
 import interfaces.Receipt;
 import rebates.Rebate1406;
 import rebates.Rebate3610;
 import secondary_headers.HolidayGreeting;
+import abstractClasses.TaxComputation;
+import coupons.Coupon100Get10Percent;
+import coupons.Coupon200Get25Percent;
 
 public class ReceiptFactory {
 	private PurchasedItems items;
@@ -28,8 +27,8 @@ public class ReceiptFactory {
 
 		getAddOns(addons);
 		for (AddOn a: addons){
-			if (a instanceof Applicable){
-				if (((Applicable) a).applies(items))  {
+			if (a instanceof Applies){
+				if (((Applies) a).applies(items))  {
 					if (a instanceof Greeting)
 						receipt = new PreDecorator(a, receipt);
 					else

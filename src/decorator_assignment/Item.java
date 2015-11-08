@@ -2,10 +2,10 @@ package decorator_assignment;
 
 public class Item {
 	private String description;
-	private String price;
+	private double price;
 	
 	
-	public Item(String description, String price){
+	public Item(String description, double price){
 		this.description=description;
 		this.price=price;
 		
@@ -13,7 +13,7 @@ public class Item {
 	public String getDescription(){
 		return description;
 	}
-	public String getPrice(){
+	public double getPrice(){
 		return price;
 	}
 }

@@ -1,8 +1,8 @@
 package rebates;
 
+import abstractClasses.Decorator;
 import interfaces.Applicable;
 import interfaces.Receipt;
-import decorator_assignment.Decorator;
 import decorator_assignment.PurchasedItems;
 
 public class RebateItem extends Decorator implements Applicable {

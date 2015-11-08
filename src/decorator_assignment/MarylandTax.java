@@ -1,5 +1,7 @@
 package decorator_assignment;
 
+import abstractClasses.TaxComputation;
+
 
 public class MarylandTax extends TaxComputation {
 

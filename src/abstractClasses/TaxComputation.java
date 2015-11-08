@@ -1,4 +1,7 @@
-package decorator_assignment;
+package abstractClasses;
+
+import decorator_assignment.PurchasedItems;
+import decorator_assignment.ReceiptDate;
 
 public abstract class TaxComputation {
 	public abstract double computeTax(PurchasedItems items, ReceiptDate date);

@@ -2,14 +2,14 @@ package rebates;
 
 import decorator_assignment.PurchasedItems;
 import interfaces.AddOn;
-import interfaces.Applicable;
+import interfaces.Applies;
 import interfaces.Rebate;
 
-public class Rebate3610 implements Applicable, AddOn, Rebate {
+public class Rebate3610 implements Applies, AddOn, Rebate {
 
 	public String getAddedOutput() {
 		return "Mail-in Rebate for Item #1406\n" +
-				"Name:\n” + “Address:\n\n" +
+				"Name:\n" + "Address:\n\n" +
 				"Mail to: Best Buy Rebates, P.O. Box 1400, Orlando, FL";
 
 	}
