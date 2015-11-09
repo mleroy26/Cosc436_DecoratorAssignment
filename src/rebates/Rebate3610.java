@@ -14,9 +14,14 @@ public class Rebate3610 implements Applies, AddOn, Rebate {
 
 	}
 	public boolean applies(PurchasedItems items) {
-		// implement to check if any of the items in purchased items
-		// is item # 1406
-		return false;
+		boolean applies=false;
+		items.start();
+		while(items.hasNext()){
+			if(items.getItem().getDescription().substring(0, 3).equals("3610"))
+				applies=true;
+			items.next();
+		}
+		return applies;
 	}
 
 

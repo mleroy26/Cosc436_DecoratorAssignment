@@ -7,6 +7,15 @@ import interfaces.Receipt;
 import rebates.Rebate1406;
 import rebates.Rebate3610;
 import secondary_headers.HolidayGreeting;
+import taxes.CaliforniaTax;
+import taxes.DelawareTax;
+import taxes.MarylandTax;
+import taxes.MassachusettsTax;
+
+import java.io.File;
+import java.util.Random;
+import java.util.Scanner;
+
 import abstractClasses.TaxComputation;
 import coupons.Coupon100Get10Percent;
 import coupons.Coupon200Get25Percent;
@@ -14,6 +23,7 @@ import coupons.Coupon200Get25Percent;
 public class ReceiptFactory {
 	private PurchasedItems items;
 	private ReceiptDate date;
+	private Receipt receipt;
 
 	private AddOn[] addons; //greeting, rebate, and coupons
 
@@ -21,7 +31,15 @@ public class ReceiptFactory {
 		this.items=items;
 		this.date=date;
 
-		Receipt receipt=new Basic_Receipt(items,date);
+		receipt=new Basic_Receipt(items,date);
+		Random rand = null;
+		int config = rand.nextInt((4 - 1) + 1) + 1;
+		switch(config){
+		case 1:receipt.set("Store # 1111 123 fake street 410 555 5555 ", "MD", new MarylandTax());break;
+		case 2:receipt.set("Store # 2222 4565 big street 856 555 5555 ", "DE", new DelawareTax());break;
+		case 3:receipt.set("Store # 3333 7902 blvd road 254 555 5555 ", "MA", new MassachusettsTax());break;
+		case 4:receipt.set("Store # 4444 1600 pennslyavannia ave 489 555 5555 ", "CA", new CaliforniaTax());break;
+		}
 
 		//link taxcomputation obj (tbd)
 
@@ -62,26 +80,14 @@ public class ReceiptFactory {
 
 		//store in receipt factory:
 		// instance variables, store info, and state code
-	}
-	private void addDecorators() {
-		//		receipt=new GreetingDecorator(receipt);
-		//		receipt=new RebateItem(receipt);
-	}
-	private void addTaxComputation() {
-		TaxComputation tc = null;
-		if(StateCode.equals("DE"))
-			tc=new DelawareTax();
-		else if(StateCode.equals("MD"))
-			tc=new MarylandTax();
-		else if(StateCode.equals("CA"))
-			tc=new CaliforniaTax();
-		else if(StateCode.equals("MA"))
-			tc=new MassachusettsTax();
-		receipt.setTax(tc);
+		Random rand = null;
+		int config = rand.nextInt((4 - 1) + 1) + 1;
+		switch(config){
+		case 1:receipt.set("Store # 1111 123 fake street 410 555 5555", "MD");break;
+		}
+		
 	}
 	public Receipt getReceipt() {
-		
-		return null;
+		return receipt;
 	}
-	
 }

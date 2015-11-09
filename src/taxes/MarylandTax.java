@@ -1,6 +1,8 @@
-package decorator_assignment;
+package taxes;
 
 import abstractClasses.TaxComputation;
+import decorator_assignment.PurchasedItems;
+import decorator_assignment.ReceiptDate;
 
 
 public class MarylandTax extends TaxComputation {
