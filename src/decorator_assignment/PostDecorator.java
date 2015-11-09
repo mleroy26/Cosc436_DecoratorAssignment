@@ -1,6 +1,7 @@
 package decorator_assignment;
 
 import abstractClasses.Decorator;
+import abstractClasses.TaxComputation;
 import interfaces.AddOn;
 import interfaces.Receipt;
 
@@ -12,7 +13,9 @@ public class PostDecorator extends Decorator {
 		this.a=a;
 	}
 	public void prtReceipt() {
-		// similar, except that prtReceipt print the add on information
-		// after the other parts of the receipt are printed	
+		System.out.println(a.getAddedOutput());
+		callTrailer();
+	}
+	public void set(String string, String string2, TaxComputation tc) {
 	}
 }

@@ -41,8 +41,6 @@ public class ReceiptFactory {
 		case 4:receipt.set("Store # 4444 1600 pennslyavannia ave 489 555 5555 ", "CA", new CaliforniaTax());break;
 		}
 
-		//link taxcomputation obj (tbd)
-
 		getAddOns(addons);
 		for (AddOn a: addons){
 			if (a instanceof Applies){
@@ -70,22 +68,6 @@ public class ReceiptFactory {
 		addOns[2] = new Rebate3610();
 		addOns[3] = new Coupon100Get10Percent();
 		addOns[4] = new Coupon200Get25Percent();
-	}
-
-	private void readConfigFile() {
-		//can have two lines in file:
-		//Store# address Phone-number
-		//State code
-
-
-		//store in receipt factory:
-		// instance variables, store info, and state code
-		Random rand = null;
-		int config = rand.nextInt((4 - 1) + 1) + 1;
-		switch(config){
-		case 1:receipt.set("Store # 1111 123 fake street 410 555 5555", "MD");break;
-		}
-		
 	}
 	public Receipt getReceipt() {
 		return receipt;

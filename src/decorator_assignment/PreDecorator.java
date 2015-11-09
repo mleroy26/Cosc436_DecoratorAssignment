@@ -1,6 +1,7 @@
 package decorator_assignment;
 
 import abstractClasses.Decorator;
+import abstractClasses.TaxComputation;
 import interfaces.AddOn;
 import interfaces.Receipt;
 
@@ -15,5 +16,6 @@ public class PreDecorator extends Decorator{
 		System.out.println(a.getAddedOutput());
 		callTrailer();
 	}
-
+	public void set(String string, String string2, TaxComputation tc) {		
+	}
 }
